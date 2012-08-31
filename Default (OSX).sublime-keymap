@@ -1,0 +1,3 @@
+[
+	{ "keys": ["super+alt+period"], "command": "open_translation_file", "args": {} }
+]

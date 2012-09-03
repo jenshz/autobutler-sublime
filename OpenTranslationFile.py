@@ -14,9 +14,7 @@ class OpenTranslationFileCommand(sublime_plugin.WindowCommand):
 		current_file_path = self.window.active_view().file_name()
 
 		if re.search(r"\.(\w+\.e)?rb$", current_file_path) or re.search(r"\w+\.da\.yml$", current_file_path):
-
 			current_file = re.search(r"((views|controllers|models)\/.*)", current_file_path).group(0)
-			print current_file
 			base_name = re.search(r"/([^.]+)\.", current_file).group(1)
 
 			source_matcher = re.compile("[/\\\\]" + base_name + "\.(\w+\.e)?rb$")
@@ -45,4 +43,4 @@ class OpenTranslationFileCommand(sublime_plugin.WindowCommand):
 						self.views.append(file_view)
 						print("Opened: " + f)
 						return
-		print("No matching files!")
+		sublime.status_message("No matching files!")
